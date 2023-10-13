@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 @Table(name = "product")
 public class Product {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -33,7 +32,7 @@ public class Product {
     private String usageArea;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     private ProductCategory category;
 
     public Product
@@ -59,10 +58,6 @@ public class Product {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -135,5 +130,21 @@ public class Product {
 
     public void setProductCategory(ProductCategory category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", material='" + material + '\'' +
+                ", weight=" + weight +
+                ", comfortDuration=" + comfortDuration +
+                ", usageArea='" + usageArea + '\'' +
+                ", category=" + category +
+                '}';
     }
 }

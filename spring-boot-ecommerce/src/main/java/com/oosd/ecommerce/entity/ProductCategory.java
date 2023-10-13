@@ -2,7 +2,7 @@ package com.oosd.ecommerce.entity;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "product_category")
@@ -30,6 +30,27 @@ public class ProductCategory {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void addProduct(Product product) {
+        if (products == null) {
+            products = new HashSet<>();
+        }
+
+        products.add(product);
+        product.setProductCategory(this);
+    }
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "id=" + id +
+                ", categoryName='" + categoryName + '\'' +
+                '}';
     }
 }
 
