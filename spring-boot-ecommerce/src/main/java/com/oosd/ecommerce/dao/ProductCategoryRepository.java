@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin
+
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Integer> {
     Optional<ProductCategory> findByCategoryName(String name);
 }

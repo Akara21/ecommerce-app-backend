@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/categories")
 public class CategoryRestController {
 
@@ -21,7 +22,7 @@ public class CategoryRestController {
     }
 
     @GetMapping
-    public List<ProductCategory> getProducts() {
+    public List<ProductCategory> getCategories() {
         return categoryService.findAll();
     }
 
