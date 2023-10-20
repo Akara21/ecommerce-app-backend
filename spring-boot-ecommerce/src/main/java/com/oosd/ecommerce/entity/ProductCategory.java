@@ -36,6 +36,10 @@ public class ProductCategory {
         return id;
     }
 
+    public int getAmountOfProducts() {
+        return this.products.size();
+    }
+
     public void addProduct(Product product) {
         if (products == null) {
             products = new HashSet<>();
