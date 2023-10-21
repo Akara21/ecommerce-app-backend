@@ -1,9 +1,8 @@
-package com.oosd.ecommerce.rest;
+package com.oosd.ecommerce.controller;
 
 import com.oosd.ecommerce.entity.Product;
 import com.oosd.ecommerce.entity.ProductCategory;
 import com.oosd.ecommerce.service.CategoryServiceImpl;
-import com.oosd.ecommerce.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

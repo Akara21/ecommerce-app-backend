@@ -1,13 +1,11 @@
-package com.oosd.ecommerce.rest;
+package com.oosd.ecommerce.controller;
 
-import com.oosd.ecommerce.dao.ProductRepository;
 import com.oosd.ecommerce.entity.Product;
 import com.oosd.ecommerce.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin
