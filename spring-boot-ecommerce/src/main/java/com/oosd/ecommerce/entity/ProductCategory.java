@@ -1,7 +1,6 @@
 package com.oosd.ecommerce.entity;
 
 import jakarta.persistence.*;
-
 import java.util.*;
 
 @Entity
@@ -46,7 +45,7 @@ public class ProductCategory {
         }
 
         products.add(product);
-        product.setProductCategory(this);
+        product.setCategory(this);
     }
 
     @Override

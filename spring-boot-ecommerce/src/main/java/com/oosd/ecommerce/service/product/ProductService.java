@@ -1,4 +1,4 @@
-package com.oosd.ecommerce.service;
+package com.oosd.ecommerce.service.product;
 
 import com.oosd.ecommerce.entity.Product;
 

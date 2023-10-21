@@ -2,7 +2,7 @@ package com.oosd.ecommerce.controller;
 
 import com.oosd.ecommerce.entity.Product;
 import com.oosd.ecommerce.entity.ProductCategory;
-import com.oosd.ecommerce.service.CategoryServiceImpl;
+import com.oosd.ecommerce.service.category.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,12 +11,12 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("/api/categories")
-public class CategoryRestController {
+public class CategoryController {
 
     private CategoryServiceImpl categoryService;
 
     @Autowired
-    public CategoryRestController(CategoryServiceImpl categoryService) {
+    public CategoryController(CategoryServiceImpl categoryService) {
         this.categoryService = categoryService;
     }
 

@@ -1,30 +1,38 @@
 package com.oosd.ecommerce.controller;
 
-import com.oosd.ecommerce.service.TokenService;
-import com.sun.tools.jconsole.JConsoleContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.oosd.ecommerce.dto.UserLoginDto;
+import com.oosd.ecommerce.dto.UserRegistrationDto;
+import com.oosd.ecommerce.service.auth.UserService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.web.bind.annotation.*;
 
-
+/**
+ * This provides the API-endpoints for the authentication.
+ */
 @RestController
 @CrossOrigin
+@RequestMapping("/api/auth")
 public class AuthController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
-    private final TokenService tokenService;
-    public AuthController(TokenService tokenService) {
-        this.tokenService = tokenService;
+    private final UserService userService;
+    private final AuthenticationManager authenticationManager;
+
+    public AuthController(UserService userService, AuthenticationManager authenticationManager) {
+        this.userService = userService;
+        this.authenticationManager = authenticationManager;
     }
 
 
-    @PostMapping("/token")
-    public String token(Authentication authentication) {
-        String token = tokenService.generateToken(authentication);
-        return token;
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserLoginDto userLoginDTO) {
+        return userService.login(userLoginDTO, authenticationManager);
     }
+
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody UserRegistrationDto userRegistrationDTO) {
+        return userService.register(userRegistrationDTO);
+    }
+
 }
