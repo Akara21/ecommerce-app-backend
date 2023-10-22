@@ -1,11 +1,11 @@
 package com.oosd.ecommerce.service.product;
 
-import com.oosd.ecommerce.dao.ProductCategoryRepository;
-import com.oosd.ecommerce.dao.ProductRepository;
+import com.oosd.ecommerce.repository.ProductCategoryRepository;
+import com.oosd.ecommerce.repository.ProductRepository;
 import com.oosd.ecommerce.entity.Product;
 import com.oosd.ecommerce.entity.ProductCategory;
-import com.oosd.ecommerce.exception.CategoryExceptionHandling.CategoryNotFoundException;
-import com.oosd.ecommerce.exception.ProductExceptionHandling.ProductNotFoundException;
+import com.oosd.ecommerce.error.CategoryExceptionHandling.CategoryNotFoundException;
+import com.oosd.ecommerce.error.ProductExceptionHandling.ProductNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

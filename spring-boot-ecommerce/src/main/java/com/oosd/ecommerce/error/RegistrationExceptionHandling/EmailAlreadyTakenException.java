@@ -1,4 +1,4 @@
-package com.oosd.ecommerce.exception.RegistrationExceptionHandling;
+package com.oosd.ecommerce.error.RegistrationExceptionHandling;
 
 public class EmailAlreadyTakenException extends RuntimeException {
     private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package com.oosd.ecommerce.dao;
+package com.oosd.ecommerce.repository;
 
 import com.oosd.ecommerce.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

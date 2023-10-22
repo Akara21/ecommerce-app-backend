@@ -1,4 +1,4 @@
-package com.oosd.ecommerce.exception.ProductExceptionHandling;
+package com.oosd.ecommerce.error.ProductExceptionHandling;
 
 public class ProductErrorResponse {
     private int status;

@@ -10,7 +10,6 @@ public interface CartService {
     List<CartItemDto> getAllCartItems();
     void addCartItem(CartItemDto cartItemDto);
     void deleteCartItem(CartItemDto cartItemDto);
-
     void decreaseCartItemQuantity(CartItemDto cartItemDto);
 
 

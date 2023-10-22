@@ -42,6 +42,10 @@ public class User {
     @Column(name = "cart_items")
     private List<CartItem> cartItems = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "orders")
+    private List<Order> orders = new ArrayList<>();
+
     public void addCartItem(CartItem cartItem) {
         this.cartItems.add(cartItem);
         cartItem.setUser(this);
@@ -50,6 +54,16 @@ public class User {
     public void removeCartItem(CartItem cartItem) {
         this.cartItems.remove(cartItem);
         cartItem.setUser(null);
+    }
+
+    public void addOrder(Order order) {
+        this.orders.add(order);
+        order.setUser(this);
+    }
+
+    public void removeOrder(Order order) {
+        this.orders.remove(order);
+        order.setUser(null);
     }
 
 }

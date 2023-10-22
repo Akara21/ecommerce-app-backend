@@ -1,4 +1,4 @@
-package com.oosd.ecommerce.exception.CategoryExceptionHandling;
+package com.oosd.ecommerce.error.CategoryExceptionHandling;
 
 public class CategoryNotFoundException extends RuntimeException{
     public CategoryNotFoundException(String message) {

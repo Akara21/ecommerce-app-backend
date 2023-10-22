@@ -1,10 +1,10 @@
 package com.oosd.ecommerce.service.auth;
 
-import com.oosd.ecommerce.dao.UserRepository;
+import com.oosd.ecommerce.repository.UserRepository;
 import com.oosd.ecommerce.dto.UserLoginDto;
 import com.oosd.ecommerce.dto.UserRegistrationDto;
 import com.oosd.ecommerce.entity.User;
-import com.oosd.ecommerce.exception.RegistrationExceptionHandling.EmailAlreadyTakenException;
+import com.oosd.ecommerce.error.RegistrationExceptionHandling.EmailAlreadyTakenException;
 import com.oosd.ecommerce.mapper.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
