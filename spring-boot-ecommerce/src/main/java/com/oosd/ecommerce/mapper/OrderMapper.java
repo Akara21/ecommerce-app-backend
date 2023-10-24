@@ -25,6 +25,7 @@ public class OrderMapper {
 
     public static Order map(OrderDto orderDto) {
         return Order.builder()
+                .id(orderDto.getId())
                 .orderItems(orderDto.getOrderItems())
                 .totalAmount(orderDto.getTotalAmount())
                 .orderDate(orderDto.getOrderDate())
@@ -33,6 +34,7 @@ public class OrderMapper {
 
     public static OrderDto map(Order order) {
         return OrderDto.builder()
+                .id(order.getId())
                 .orderItems(order.getOrderItems())
                 .totalAmount(order.getTotalAmount())
                 .orderDate(order.getOrderDate())

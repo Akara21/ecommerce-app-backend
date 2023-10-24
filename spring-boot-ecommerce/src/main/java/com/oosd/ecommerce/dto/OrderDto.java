@@ -15,6 +15,7 @@ import java.util.List;
 @Data
 @Builder
 public class OrderDto {
+    private Long id;
     private List<OrderItem> orderItems;
     private BigDecimal totalAmount;
     private LocalDateTime orderDate;

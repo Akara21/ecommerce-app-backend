@@ -87,6 +87,18 @@ public class CartServiceImpl implements CartService {
 
     }
 
+    @Override
+    @Transactional
+    public void clearCart() {
+        User user = userService.getCurrentUser();
+
+        List<CartItem> cartItems = user.getCartItems();
+
+        cartItems.clear();
+
+        userService.save(user);
+    }
+
     private CartItem findCartItemInUserCart(User user, CartItem cartItem) {
         for (CartItem item : user.getCartItems()) {
             if (item.getProduct().getId() == cartItem.getProduct().getId()) {

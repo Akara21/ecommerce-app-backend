@@ -12,5 +12,6 @@ public interface CartService {
     void deleteCartItem(CartItemDto cartItemDto);
     void decreaseCartItemQuantity(CartItemDto cartItemDto);
 
+    void clearCart();
 
 }

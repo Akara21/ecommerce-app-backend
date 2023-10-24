@@ -34,4 +34,9 @@ public class CartController {
     void decreaseCartItemQuantity(@RequestBody CartItemDto cartItemDto) {
         cartService.decreaseCartItemQuantity(cartItemDto);
     }
+
+    @DeleteMapping
+    void clearCart() {
+        cartService.clearCart();
+    }
 }

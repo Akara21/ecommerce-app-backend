@@ -26,7 +26,6 @@ public class CategoryServiceImpl implements CategoryService{
     @Override
     public List<ProductCategory> findAll() {
         List<ProductCategory> productCategories = categoryRepository.findAll();
-        System.out.println("Categories: " + productCategories);
         return productCategories;
     }
 
@@ -35,7 +34,6 @@ public class CategoryServiceImpl implements CategoryService{
         Optional<ProductCategory> optionalProductCategory = categoryRepository.findById(id);
 
         if (optionalProductCategory.isPresent()) {
-            System.out.println("Category: " + optionalProductCategory.get());
             return optionalProductCategory.get();
         } else {
             throw new CategoryNotFoundException("Product with id " + id + " not found");
