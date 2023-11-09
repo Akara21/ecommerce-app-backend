@@ -8,10 +8,12 @@ import com.oosd.ecommerce.error.RegistrationExceptionHandling.EmailAlreadyTakenE
 import com.oosd.ecommerce.mapper.UserMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -39,15 +41,19 @@ public class UserService implements UserDetailsService {
     }
 
     public ResponseEntity<?> login(UserLoginDto userLoginDTO, AuthenticationManager authenticationManager) {
-        System.out.println("LOGIN " + userLoginDTO.getEmail() + " " + userLoginDTO.getPassword());
 
-        Authentication authentication = authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(
-                userLoginDTO.getEmail(), userLoginDTO.getPassword()));
+        try {
+            Authentication authentication = authenticationManager
+                    .authenticate(new UsernamePasswordAuthenticationToken(
+                            userLoginDTO.getEmail(), userLoginDTO.getPassword()));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            return ResponseEntity.ok(tokenService.generateToken(authentication));
 
-        return ResponseEntity.ok(tokenService.generateToken(authentication));
+        } catch (AuthenticationException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Invalid email or password");
+        }
     }
 
     public ResponseEntity<?> register(UserRegistrationDto userRegistrationDTO) {
