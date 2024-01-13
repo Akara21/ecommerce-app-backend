@@ -3,6 +3,9 @@ package com.oosd.ecommerce.mapper;
 import com.oosd.ecommerce.dto.CartItemDto;
 import com.oosd.ecommerce.entity.CartItem;
 
+/**
+ * This provides helper functions for mapping a cart item object to a cart item dto object and vice versa.
+ */
 public class CartMapper
 {
     public static CartItem map(CartItemDto cartItemDto) {

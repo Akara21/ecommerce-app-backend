@@ -5,6 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * This provides the functionality for exception handling for product API-endpoints.
+ */
 @ControllerAdvice
 public class ProductExceptionHandler {
 

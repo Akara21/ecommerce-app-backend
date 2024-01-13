@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This provides the API-endpoints for the order functionality.
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("/api/order")
@@ -18,7 +21,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping
-    List<OrderDto> getOrders() {
+    public List<OrderDto> getOrders() {
         return orderService.getOrders();
     }
 

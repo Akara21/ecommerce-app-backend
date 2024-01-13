@@ -10,6 +10,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * This defines the structure of an order data transfer object.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

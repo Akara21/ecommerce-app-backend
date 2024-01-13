@@ -32,6 +32,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This defines the security configuration.
+ */
 @Configuration
 @EnableMethodSecurity
 @RequiredArgsConstructor

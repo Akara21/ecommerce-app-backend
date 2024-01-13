@@ -1,8 +1,20 @@
 package com.oosd.ecommerce.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.*;
 
+/**
+ * This defines the structure of a category.
+ */
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Data
 @Entity
 @Table(name = "product_category")
 public class ProductCategory {
@@ -17,24 +29,6 @@ public class ProductCategory {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<Product> products;
 
-    public ProductCategory(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public ProductCategory() {}
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
     public int getAmountOfProducts() {
         return this.products.size();
     }
@@ -43,18 +37,10 @@ public class ProductCategory {
         if (products == null) {
             products = new HashSet<>();
         }
-
         products.add(product);
         product.setCategory(this);
     }
 
-    @Override
-    public String toString() {
-        return "ProductCategory{" +
-                "id=" + id +
-                ", categoryName='" + categoryName + '\'' +
-                '}';
-    }
 }
 
 

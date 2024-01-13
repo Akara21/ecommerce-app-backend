@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+/**
+ * This defines the structure of a product.
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -43,19 +46,4 @@ public class Product {
     @JoinColumn(name = "category_id")
     private ProductCategory category;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", material='" + material + '\'' +
-                ", weight=" + weight +
-                ", comfortDuration=" + comfortDuration +
-                ", usageArea='" + usageArea + '\'' +
-                ", category=" + category +
-                '}';
-    }
 }

@@ -1,13 +1,11 @@
 package com.oosd.ecommerce.service.order;
 
-import com.oosd.ecommerce.dto.CartItemDto;
+
 import com.oosd.ecommerce.dto.OrderDto;
 import com.oosd.ecommerce.dto.OrderItemDto;
-import com.oosd.ecommerce.entity.CartItem;
 import com.oosd.ecommerce.entity.Order;
 import com.oosd.ecommerce.entity.OrderItem;
 import com.oosd.ecommerce.entity.User;
-import com.oosd.ecommerce.mapper.CartMapper;
 import com.oosd.ecommerce.mapper.OrderMapper;
 import com.oosd.ecommerce.repository.OrderRepository;
 import com.oosd.ecommerce.service.auth.UserService;
@@ -20,6 +18,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This defines the implementation of the order service for managing the order entity and order item entity.
+ */
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
@@ -30,7 +31,6 @@ public class OrderServiceImpl implements OrderService{
     @Transactional
     @Override
     public void addOrder(List<OrderItemDto> orderItemDtoList) {
-        System.out.println("ORDER ITEMS " + orderItemDtoList);
         User user = userService.getCurrentUser();
         Order order = new Order();
 
@@ -43,8 +43,6 @@ public class OrderServiceImpl implements OrderService{
 
         BigDecimal totalAmount = calculateTotalAmount(orderItems);
         LocalDateTime orderDate = LocalDateTime.now();
-
-        System.out.println("ORDER ITEMS NEW: " + orderItems);
 
         order.setUser(user);
         order.setOrderItems(orderItems);
@@ -75,8 +73,6 @@ public class OrderServiceImpl implements OrderService{
 
         for (OrderItem orderItem : orderItems) {
             BigDecimal itemTotal = orderItem.getProduct().getPrice().multiply(BigDecimal.valueOf(orderItem.getQuantity()));
-            System.out.println("Order Item " + orderItem);
-            System.out.println("Total bis jetzt: " + totalAmount);
             totalAmount = totalAmount.add(itemTotal);
         }
 

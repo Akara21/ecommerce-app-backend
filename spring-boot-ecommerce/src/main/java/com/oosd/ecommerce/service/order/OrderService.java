@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * This defines the interface of the order service for managing the order entity and order item entity.
+ */
 public interface OrderService {
 
     void addOrder(List<OrderItemDto> orders);

@@ -1,4 +1,5 @@
 package com.oosd.ecommerce.service.auth;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -10,14 +11,14 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
+/**
+ * This defines the service class for managing the JWT-Token generation.
+ */
 @Service
+@RequiredArgsConstructor
 public class TokenService {
 
     private final JwtEncoder encoder;
-
-    public TokenService(JwtEncoder encoder) {
-        this.encoder = encoder;
-    }
 
     public String generateToken(Authentication authentication) {
         Instant now = Instant.now();
@@ -31,6 +32,7 @@ public class TokenService {
                 .subject(authentication.getName())
                 .claim("scope", scope)
                 .build();
+
         return this.encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
 

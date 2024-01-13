@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This provides the API-endpoints for the cart functionality.
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("/api/cart")
@@ -16,7 +19,7 @@ public class CartController {
     private final CartService cartService;
 
     @GetMapping
-    List<CartItemDto> getAllCartItems() {
+    public List<CartItemDto> getAllCartItems() {
         return cartService.getAllCartItems();
     }
 
@@ -39,4 +42,5 @@ public class CartController {
     void clearCart() {
         cartService.clearCart();
     }
+
 }

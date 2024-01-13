@@ -3,12 +3,15 @@ package com.oosd.ecommerce.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * This defines the structure of a cart item.
+ */
 @Entity
-@Table(name = "cart_item")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "cart_item")
 public class CartItem {
 
     @Id

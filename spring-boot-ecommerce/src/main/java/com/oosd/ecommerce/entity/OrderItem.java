@@ -10,12 +10,15 @@ import org.aspectj.weaver.ast.Or;
 
 import java.util.List;
 
+/**
+ * This defines the structure of an order item.
+ */
 @Entity
-@Table(name = "order_item")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "order_item")
 public class OrderItem {
 
     @Id

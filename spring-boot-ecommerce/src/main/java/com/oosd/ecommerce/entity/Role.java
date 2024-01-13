@@ -3,7 +3,10 @@ package com.oosd.ecommerce.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-
+/**
+ * This defines the structure of a role.
+ * This class is necessary to work with Spring Security.
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

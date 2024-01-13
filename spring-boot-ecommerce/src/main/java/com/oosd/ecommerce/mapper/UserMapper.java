@@ -8,6 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 
+/**
+ * This provides a helper function for mapping a user registration dto object to a user object.
+ */
 public class UserMapper {
 
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

@@ -10,12 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * This defines the structure of a user.
+ * This class is necessary to work with Spring Security.
+ */
 @Entity
-@Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
+@Table(name = "user")
 public class User {
 
     @Id

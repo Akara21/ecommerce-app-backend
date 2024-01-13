@@ -7,23 +7,21 @@ import com.oosd.ecommerce.entity.ProductCategory;
 import com.oosd.ecommerce.error.CategoryExceptionHandling.CategoryNotFoundException;
 import com.oosd.ecommerce.error.ProductExceptionHandling.ProductNotFoundException;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This defines the implementation of the product service for managing the product entity.
+ */
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService{
 
     private ProductRepository productRepository;
-    private ProductCategoryRepository productCategoryRepository;
-
-    @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, ProductCategoryRepository productCategoryRepository) {
-        this.productCategoryRepository = productCategoryRepository;
-        this.productRepository = productRepository;
-    }
 
     @Override
     public List<Product> findAll() {
@@ -40,18 +38,4 @@ public class ProductServiceImpl implements ProductService{
         }
     }
 
-    @Override
-    @Transactional
-    public Product save(Product product, String categoryName) {
-        Optional<ProductCategory> optionalProductCategory = productCategoryRepository.findByCategoryName(categoryName);
-
-        if (optionalProductCategory.isPresent()) {
-            ProductCategory productCategory = optionalProductCategory.get();
-            productCategory.addProduct(product);
-            productCategoryRepository.save(productCategory);
-            return product;
-        } else {
-            throw new CategoryNotFoundException("Product with name " + categoryName + " not found");
-        }
-    }
 }

@@ -7,6 +7,7 @@ import com.oosd.ecommerce.entity.User;
 import com.oosd.ecommerce.error.RegistrationExceptionHandling.EmailAlreadyTakenException;
 import com.oosd.ecommerce.mapper.UserMapper;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,17 +29,15 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * This defines the service class for managing all user related functionalities.
+ */
 @Service
+@RequiredArgsConstructor
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final TokenService tokenService;
-
-    @Autowired
-    public UserService(UserRepository userRepository, TokenService tokenService) {
-        this.userRepository = userRepository;
-        this.tokenService = tokenService;
-    }
 
     public ResponseEntity<?> login(UserLoginDto userLoginDTO, AuthenticationManager authenticationManager) {
 
@@ -57,7 +56,6 @@ public class UserService implements UserDetailsService {
     }
 
     public ResponseEntity<?> register(UserRegistrationDto userRegistrationDTO) {
-        System.out.println("IN REGISTER");
         if (userRepository.existsByEmail(userRegistrationDTO.getEmail())) {
             throw new EmailAlreadyTakenException("User with this Email does already exists");
         }

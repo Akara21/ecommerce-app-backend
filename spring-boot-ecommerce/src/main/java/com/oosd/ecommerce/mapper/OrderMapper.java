@@ -7,6 +7,10 @@ import com.oosd.ecommerce.entity.CartItem;
 import com.oosd.ecommerce.entity.Order;
 import com.oosd.ecommerce.entity.OrderItem;
 
+/**
+ * This provides helper functions for mapping an order item object to an order item dto object and vice versa.
+ * This also provides helper functions for mapping an order object to an order dto object and vice versa.
+ */
 public class OrderMapper {
 
     public static OrderItem map(OrderItemDto orderItemDto) {
