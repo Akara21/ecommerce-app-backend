@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * This provides the API-endpoints for the product functionality.
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("/api/products")
